@@ -149,6 +149,12 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+         * Vendor Service Providers...
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        TwigBridge\ServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         Grove\Providers\AppServiceProvider::class,

@@ -2,7 +2,7 @@
   "name": "grove",
   "private": true,
   "scripts": {
-    "postinstall": "gulp build"
+    "postinstall": "gulp build --production"
   },
   "dependencies": {
     "foundation-sites": "^6.1.1",

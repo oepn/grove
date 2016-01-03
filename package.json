@@ -2,7 +2,8 @@
   "name": "grove",
   "private": true,
   "dependencies": {
-    "foundation-sites": "^6.1.1"
+    "foundation-sites": "^6.1.1",
+    "modernizr": "^3.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.3",
@@ -14,6 +15,7 @@
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

@@ -23,7 +23,7 @@ var paths = {
     public: path.join(__dirname, 'public/assets')
 };
 
-var inProduction = util.env.production;
+var inProduction = process.env.NODE_ENV === 'production' || util.env.production;
 
 var cssProcessors = [
     autoprefixer

@@ -39,16 +39,14 @@
     ],
     "post-install-cmd": [
       "php artisan clear-compiled",
-      "php artisan ide-helper:generate",
-      "php artisan ide-helper:meta",
+      "php artisan app:update",
       "php artisan optimize"
     ],
     "pre-update-cmd": [
       "php artisan clear-compiled"
     ],
     "post-update-cmd": [
-      "php artisan ide-helper:generate",
-      "php artisan ide-helper:meta",
+      "php artisan app:update",
       "php artisan optimize"
     ]
   },

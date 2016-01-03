@@ -151,7 +151,6 @@ return [
         /*
          * Vendor Service Providers...
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         TwigBridge\ServiceProvider::class,
 
         /*

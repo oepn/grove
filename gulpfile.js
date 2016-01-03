@@ -93,7 +93,7 @@ gulp.task('browser-sync', function() {
         proxy: '127.0.0.1:8000',
         port: 3000,
         open: true,
-        notify: true,
+        notify: false,
         reloadOnRestart: true
     });
 });

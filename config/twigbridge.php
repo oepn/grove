@@ -82,7 +82,9 @@ return [
         | NOTE: these will be overwritten if you pass data into the view with the same key.
         |
         */
-        'globals' => [],
+        'globals' => [
+            'app_env' => config('app.env')
+        ],
     ],
 
     'extensions' => [

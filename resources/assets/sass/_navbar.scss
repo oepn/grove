@@ -1,6 +1,13 @@
 .c-navbar {
-  @include clearfix;
   background: $white;
+
+  &__wrapper {
+    @include grid-row;
+
+    &__content {
+      @include grid-column;
+    }
+  }
 
   &__title-area {
     float: left;
@@ -8,7 +15,6 @@
 
   &__logo {
     margin: 0;
-    padding: 0 1em;
     background: $primary-color;
     font-size: 1.125rem;
     line-height: $navbar-height;
@@ -25,12 +31,35 @@
 
   &__list {
     float: right;
+    position: relative;
+    right: -1em;
     padding: 0;
     margin: 0;
     list-style: none;
 
     &__item {
       float: left;
+    }
+  }
+
+  // Add extra padding, then overhang title-area
+  @each $breakpoint, $gutter in $grid-column-responsive-gutter {
+    $padding: rem-calc($gutter) / 2;
+
+    @include breakpoint($breakpoint) {
+      &__wrapper {
+        padding-right: $padding;
+        padding-left: $padding;
+      }
+
+      &__title-area {
+        margin-left: -$padding * 2;
+      }
+
+      &__logo {
+        padding-right: $padding * 2;
+        padding-left: $padding * 2;
+      }
     }
   }
 

@@ -1,4 +1,18 @@
-.t-content {
+.o-content {
+  @include grid-row;
+
+  &__wrapper {
+    // Add extra padding
+    @each $breakpoint, $gutter in $grid-column-responsive-gutter {
+      $padding: rem-calc($gutter) / 2;
+
+      @include breakpoint($breakpoint) {
+        padding-right: $padding;
+        padding-left: $padding;
+      }
+    }
+  }
+
   a {
     &:link, &:visited {
       padding: 0.1em 0.35em;
@@ -12,4 +26,8 @@
       color: $white;
     }
   }
+}
+
+.text {
+  @include grid-column;
 }

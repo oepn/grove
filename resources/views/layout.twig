@@ -24,20 +24,24 @@
 <body>
 
 <div class="c-navbar c-navbar--home">
-    <div class="c-navbar__title-area c-navbar--home__title-area">
-        <h1 class="c-navbar__logo">Nathaniel Charles</h1>
+    <div class="c-navbar__wrapper">
+        <div class="c-navbar__wrapper__content">
+            <div class="c-navbar__title-area c-navbar--home__title-area">
+                <h1 class="c-navbar__logo">Nathaniel Charles</h1>
+            </div>
+            <ul class="c-navbar__list">
+                <li class="c-navbar__list__item">
+                    <a class="c-navbar__link" href="#">Work</a>
+                </li>
+                <li class="c-navbar__list__item">
+                    <a class="c-navbar__link" href="#">Resume</a>
+                </li>
+                <li class="c-navbar__list__item">
+                    <a class="c-navbar__link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <ul class="c-navbar__list">
-        <li class="c-navbar__list__item">
-            <a class="c-navbar__link" href="#">Work</a>
-        </li>
-        <li class="c-navbar__list__item">
-            <a class="c-navbar__link" href="#">Resume</a>
-        </li>
-        <li class="c-navbar__list__item">
-            <a class="c-navbar__link" href="#">Contact</a>
-        </li>
-    </ul>
 </div>
 
 {{ block('content') }}

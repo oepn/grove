@@ -1,0 +1,15 @@
+.t-content {
+  a {
+    &:link, &:visited {
+      padding: 0.1em 0.35em;
+      background: $primary-color;
+      color: $body-font-color;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background: $body-font-color;
+      color: $white;
+    }
+  }
+}

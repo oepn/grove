@@ -1,0 +1,42 @@
+.c-navbar {
+  @include clearfix;
+  background: $white;
+
+  &__title-area {
+    float: left;
+  }
+
+  &__logo {
+    margin: 0;
+    padding: 0 1em;
+    background: $primary-color;
+    font-size: 1.125rem;
+    line-height: $navbar-height;
+    font-weight: normal;
+  }
+
+  &__link {
+    font-size: 0.9rem;
+    line-height: $navbar-height;
+    color: $dark-gray;
+    text-decoration: none;
+    padding: 1em;
+  }
+
+  &__list {
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+      float: left;
+    }
+  }
+
+  &--home {
+    &__title-area {
+      visibility: hidden;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.c-banner {
+  @include flex-grid-row($width: auto);
+  @include flex-grid-row-align(center, middle);
+  height: calc(100vh - #{$navbar-height});
+  max-height: $banner-height;
+  background: $white;
+  text-align: center;
+
+  &__content {
+    @include flex-grid-column;
+    margin-top: -$navbar-height;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    margin: 0;
+  }
+}

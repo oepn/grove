@@ -1,4 +1,6 @@
 .c-navbar {
+  $base: #{&};
+  width: 100%;
   background: $white;
 
   &__wrapper {
@@ -82,9 +84,9 @@
     }
   }
 
-  .t-minimal-navbar & {
-    &__title-area {
-      visibility: hidden;
+  &.t-minimal-navbar {
+    #{$base}__title-area {
+      display: none;
     }
   }
 }

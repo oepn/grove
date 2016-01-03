@@ -1,5 +1,5 @@
 .c-banner {
-  @include flex-grid-row($width: auto);
+  @include flex-grid-row($width: 100%);
   @include flex-grid-row-align(center, middle);
   height: calc(100vh - #{$navbar-height});
   max-height: $banner-height;

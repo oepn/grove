@@ -16,16 +16,35 @@
   &__logo {
     margin: 0;
     background: $primary-color;
-    font-size: 1.125rem;
+    color: $body-font-color;
+    font-size: 1rem;
     line-height: $navbar-height;
     font-weight: normal;
+
+    &:hover {
+      background: $body-font-color;
+      color: $white;
+    }
+
+    &__long {
+      display: none;
+    }
+
+    @include breakpoint(28em) {
+      &__short {
+        display: none;
+      }
+
+      &__long {
+        display: inline;
+      }
+    }
   }
 
   &__link {
     font-size: 0.9rem;
     line-height: $navbar-height;
     color: $dark-gray;
-    text-decoration: none;
     padding: 1em;
   }
 

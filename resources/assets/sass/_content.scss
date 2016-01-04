@@ -37,7 +37,18 @@
     @include grid-column($gutter: $gutter * 2);
 
     &__title {
-      margin: 0.5em 0;
+      position: relative;
+      margin: 0.75em 0 0.5em;
+      line-height: 1;
+
+      &--with-link {
+        margin-bottom: 0.25em;
+      }
+    }
+
+    &__link {
+      display: inline-block;
+      margin-bottom: 1.5em;
     }
   }
 
@@ -57,7 +68,6 @@
 
       &__title {
         margin-top: -0.15em; // Remove space above text to align top edges
-        line-height: 1;
       }
     }
   }

@@ -48,6 +48,10 @@
     line-height: $navbar-height;
     color: $dark-gray;
     padding: 1em;
+
+    &:hover {
+      color: $black;
+    }
   }
 
   &__list {

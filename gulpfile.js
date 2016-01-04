@@ -38,8 +38,9 @@ if (inProduction) {
 // Tasks
 // - - - - - - - - - - - - - - - -
 
-gulp.task('clean', function() {
-    return del([paths.public + '/**', '!' + paths.public]);
+gulp.task('clean', function(done) {
+    del.sync([paths.public + '/**', '!' + paths.public]);
+    done();
 });
 
 gulp.task('copy-assets', ['clean'], function() {

@@ -1,18 +1,6 @@
 .o-content {
   @include grid-row;
 
-  &__wrapper {
-    // Add extra padding
-    @each $breakpoint, $gutter in $grid-column-responsive-gutter {
-      $padding: rem-calc($gutter) / 2;
-
-      @include breakpoint($breakpoint) {
-        padding-right: $padding;
-        padding-left: $padding;
-      }
-    }
-  }
-
   a {
     &:link, &:visited {
       padding: 0.1em 0.35em;
@@ -25,8 +13,52 @@
       color: $white;
     }
   }
+
+  // Add extra padding on larger screens
+  @include breakpoint(medium) {
+    &__wrapper {
+      $padding: rem-calc(map_get($grid-column-responsive-gutter, medium))/2;
+      padding-right: $padding;
+      padding-left: $padding;
+    }
+  }
 }
 
-.text {
-  @include grid-column;
+.o-project {
+  &__image {
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__description {
+    $gutter: map-get($grid-column-responsive-gutter, small);
+    @include grid-column($gutter: $gutter * 2);
+
+    &__title {
+      margin: 0.5em 0;
+    }
+  }
+
+  @include breakpoint(medium) {
+    $gutter: map-get($grid-column-responsive-gutter, medium);
+    margin-top: 3rem;
+
+    &__image {
+      @include grid-column(6, $gutter);
+      padding-right: 3rem;
+    }
+
+    &__description {
+      @include grid-column-size(6);
+      padding-left: 0;
+      padding-right: rem-calc($gutter)/2;
+
+      &__title {
+        margin-top: -0.15em; // Remove space above text to align top edges
+        line-height: 1;
+      }
+    }
+  }
 }

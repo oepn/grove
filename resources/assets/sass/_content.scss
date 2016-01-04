@@ -8,7 +8,7 @@
       color: $body-font-color;
     }
 
-    &:hover {
+    .no-touchevents &:hover, &:active {
       background: $body-font-color;
       color: $white;
     }

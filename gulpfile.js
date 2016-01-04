@@ -72,7 +72,8 @@ gulp.task('scripts', function() {
             'setClasses'
         ],
         'feature-detects': [
-            'test/css/flexbox'
+            'test/css/flexbox',
+            'touchevents'
         ]
     }, function(result) {
         var stream = source('modernizr.min.js');

@@ -3,7 +3,13 @@
 $banner-height: 400px;
 $navbar-height: 50px;
 
+$timing--fast: 150ms;
+$timing--medium: 250ms;
+$timing--slow: 350ms;
+
 @import "typography";
 @import "navbar";
 @import "banner";
 @import "content";
+@import "grid";
+@import "project-block";

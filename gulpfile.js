@@ -1,8 +1,10 @@
 /* eslint-disable no-var */
 var gulp = require('gulp');
+var concat = require('gulp-concat');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
 var util = require('gulp-util');
 var watch = require('gulp-watch');
 
@@ -10,9 +12,11 @@ var autoprefixer = require('autoprefixer');
 var browserSync = require('browser-sync');
 var csswring = require('csswring');
 var del = require('del');
+var merge = require('merge-stream');
 var modernizr = require('modernizr');
 var path = require('path');
 var source = require('vinyl-source-stream');
+var vinylBuffer = require('vinyl-buffer');
 
 // Config
 // - - - - - - - - - - - - - - - -
@@ -67,7 +71,6 @@ gulp.task('styles-watch', styles);
 
 gulp.task('scripts', function() {
     modernizr.build({
-        minify: true,
         options: [
             'setClasses'
         ],
@@ -78,7 +81,16 @@ gulp.task('scripts', function() {
     }, function(result) {
         var stream = source('modernizr.min.js');
         stream.end(result);
-        stream.pipe(gulp.dest(paths.public + '/js'));
+        var modernizr = stream.pipe(vinylBuffer());
+        var fastclick = gulp.src(paths.npm + '/fastclick/lib/fastclick.js');
+        var init = gulp.src(paths.src + '/js/init.js');
+
+        merge(modernizr, fastclick, init)
+            .pipe(sourcemaps.init())
+            .pipe(concat('app.min.js'))
+            .pipe(uglify())
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest(paths.public + '/js'));
     });
 });
 

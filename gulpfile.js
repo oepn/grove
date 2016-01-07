@@ -1,6 +1,7 @@
 /* eslint-disable no-var */
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var order = require('gulp-order');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -79,13 +80,18 @@ gulp.task('scripts', function() {
             'touchevents'
         ]
     }, function(result) {
-        var stream = source('modernizr.min.js');
+        var stream = source('modernizr.js');
         stream.end(result);
         var modernizr = stream.pipe(vinylBuffer());
         var fastclick = gulp.src(paths.npm + '/fastclick/lib/fastclick.js');
         var init = gulp.src(paths.src + '/js/init.js');
 
         merge(modernizr, fastclick, init)
+            .pipe(order([
+                'modernizr.js',
+                'fastclick.js',
+                'init.js'
+            ]))
             .pipe(sourcemaps.init())
             .pipe(concat('app.min.js'))
             .pipe(uglify())

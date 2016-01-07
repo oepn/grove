@@ -224,6 +224,11 @@
       "from": "block-stream@*",
       "resolved": "https://registry.npmjs.org/block-stream/-/block-stream-0.0.8.tgz"
     },
+    "bluebird": {
+      "version": "3.1.1",
+      "from": "bluebird@latest",
+      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-3.1.1.tgz"
+    },
     "boom": {
       "version": "2.10.1",
       "from": "boom@>=2.0.0 <3.0.0",

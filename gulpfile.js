@@ -1,4 +1,6 @@
 /* eslint-disable no-var */
+var Promise = require('bluebird');
+
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var order = require('gulp-order');
@@ -18,6 +20,19 @@ var modernizr = require('modernizr');
 var path = require('path');
 var source = require('vinyl-source-stream');
 var vinylBuffer = require('vinyl-buffer');
+
+// Helpers
+// - - - - - - - - - - - - - - - -
+
+function buildModernizr(config) {
+    return new Promise(function(resolve) {
+        modernizr.build(config, function(result) {
+            var stream = source('modernizr.js');
+            stream.end(result);
+            resolve(stream.pipe(vinylBuffer()));
+        });
+    });
+}
 
 // Config
 // - - - - - - - - - - - - - - - -
@@ -71,7 +86,7 @@ gulp.task('styles', ['copy-assets'], styles);
 gulp.task('styles-watch', styles);
 
 gulp.task('scripts', function() {
-    modernizr.build({
+    var build = buildModernizr({
         options: [
             'setClasses'
         ],
@@ -79,14 +94,13 @@ gulp.task('scripts', function() {
             'test/css/flexbox',
             'touchevents'
         ]
-    }, function(result) {
-        var stream = source('modernizr.js');
-        stream.end(result);
-        var modernizr = stream.pipe(vinylBuffer());
-        var fastclick = gulp.src(paths.npm + '/fastclick/lib/fastclick.js');
-        var init = gulp.src(paths.src + '/js/init.js');
+    });
 
-        merge(modernizr, fastclick, init)
+    build.then(function(stream) {
+        merge(stream, gulp.src([
+            paths.npm + '/fastclick/lib/fastclick.js',
+            paths.src + '/js/init.js'
+        ]))
             .pipe(order([
                 'modernizr.js',
                 'fastclick.js',

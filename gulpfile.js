@@ -1,6 +1,4 @@
 /* eslint-disable no-var */
-var Promise = require('bluebird');
-
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var gulpif = require('gulp-if');
@@ -19,33 +17,19 @@ var del = require('del');
 var merge = require('merge-stream');
 var modernizr = require('modernizr');
 var path = require('path');
+var Promise = require('bluebird');
 var source = require('vinyl-source-stream');
 var vinylBuffer = require('vinyl-buffer');
-
-// Helpers
-// - - - - - - - - - - - - - - - -
-
-function buildModernizr(config) {
-    return new Promise(function(resolve) {
-        modernizr.build(config, function(result) {
-            var stream = source('modernizr.js');
-            stream.end(result);
-            resolve(stream.pipe(vinylBuffer()));
-        });
-    });
-}
 
 // Config
 // - - - - - - - - - - - - - - - -
 
+var inProduction = process.env.NODE_ENV === 'production' || util.env.production;
 var paths = {
     npm: path.join(__dirname, 'node_modules'),
     src: path.join(__dirname, 'resources/assets'),
     public: path.join(__dirname, 'public/assets')
 };
-
-var inProduction = process.env.NODE_ENV === 'production' || util.env.production;
-
 var cssProcessors = [
     autoprefixer
 ];
@@ -59,20 +43,37 @@ if (inProduction) {
 // Tasks
 // - - - - - - - - - - - - - - - -
 
-gulp.task('clean', function(done) {
+gulp.task('clean', cleanBuildDirectory);
+gulp.task('copy-assets', ['clean'], copyAssets);
+
+gulp.task('styles', ['copy-assets'], buildStyles);
+gulp.task('styles-watch', buildStyles);
+
+gulp.task('scripts', buildScripts);
+gulp.task('browser-sync', startBrowserSync);
+
+gulp.task('watch', ['browser-sync'], watchFiles);
+gulp.task('build', ['styles', 'scripts']);
+
+gulp.task('default', ['build']);
+
+// Functions
+// - - - - - - - - - - - - - - - -
+
+function cleanBuildDirectory(done) {
     del.sync([paths.public + '/**', '!' + paths.public]);
     done();
-});
+}
 
-gulp.task('copy-assets', ['clean'], function() {
+function copyAssets() {
     return gulp.src([
             paths.src + '/files/**/*.*',
             paths.src + '/images/**/*.*'
         ], {base: paths.src})
         .pipe(gulp.dest(paths.public));
-});
+}
 
-var styles = function() {
+function buildStyles() {
     gulp.src(paths.src + '/sass/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -82,11 +83,9 @@ var styles = function() {
         .pipe(postcss(cssProcessors))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.public + '/css'));
-};
-gulp.task('styles', ['copy-assets'], styles);
-gulp.task('styles-watch', styles);
+}
 
-gulp.task('scripts', function() {
+function buildScripts() {
     var build = buildModernizr({
         options: [
             'setClasses'
@@ -113,9 +112,9 @@ gulp.task('scripts', function() {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest(paths.public + '/js'));
     });
-});
+}
 
-gulp.task('browser-sync', function() {
+function startBrowserSync() {
     browserSync({
         files: [
             'app/**/*',
@@ -131,13 +130,23 @@ gulp.task('browser-sync', function() {
         notify: false,
         reloadOnRestart: true
     });
-});
+}
 
-gulp.task('watch', ['browser-sync'], function() {
+function watchFiles() {
     watch(paths.src + '/sass/**/*.scss', function() {
         gulp.start('styles-watch');
     });
-});
+}
 
-gulp.task('build', ['styles', 'scripts']);
-gulp.task('default', ['build']);
+// Helpers
+// - - - - - - - - - - - - - - - -
+
+function buildModernizr(config) {
+    return new Promise(function(resolve) {
+        modernizr.build(config, function(result) {
+            var stream = source('modernizr.js');
+            stream.end(result);
+            resolve(stream.pipe(vinylBuffer()));
+        });
+    });
+}

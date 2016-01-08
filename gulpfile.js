@@ -3,6 +3,7 @@ var Promise = require('bluebird');
 
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var gulpif = require('gulp-if');
 var order = require('gulp-order');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
@@ -108,7 +109,7 @@ gulp.task('scripts', function() {
             ]))
             .pipe(sourcemaps.init())
             .pipe(concat('app.min.js'))
-            .pipe(uglify())
+            .pipe(gulpif(inProduction, uglify()))
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest(paths.public + '/js'));
     });

@@ -107,7 +107,7 @@ function buildScripts() {
                 'init.js'
             ]))
             .pipe(sourcemaps.init())
-            .pipe(concat('app.min.js'))
+            .pipe(concat('app.js'))
             .pipe(gulpif(inProduction, uglify()))
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest(paths.public + '/js'));

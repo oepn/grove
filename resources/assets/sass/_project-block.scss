@@ -8,8 +8,6 @@
     width: 100%;
     padding-top: $ratio;
     background: $dark-gray;
-    box-shadow: inset 0 0 0 0 $primary-color;
-    transition: $timing--fast box-shadow ease-out;
 
     &::before {
       content: '';
@@ -22,7 +20,6 @@
       padding-top: $ratio;
       background: #fff;
       opacity: 0.6;
-      transition: $timing--fast opacity ease-out;
     }
   }
 

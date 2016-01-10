@@ -1,3 +1,6 @@
+$animation-duration: 7s;
+$transform-perspective: 300px;
+
 .c-banner {
   display: flex;
   justify-content: center;
@@ -12,12 +15,24 @@
     margin-bottom: $navbar-height;
 
     &__icon {
+      $icon-size: 50px;
+      position: relative;
       display: block;
-      $size: 50px;
-      width: $size;
-      height: $size;
+      width: $icon-size;
+      height: $icon-size;
       margin: 0 auto 1rem;
-      background: $primary-color;
+      animation: $animation-duration/2 ease rotate infinite;
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        width: $icon-size;
+        height: $icon-size;
+        background-color: $primary-color;
+        animation: $animation-duration ease spin-color infinite;
+      }
     }
 
     &__title {
@@ -30,5 +45,25 @@
       font-size: 1rem;
       margin: 0;
     }
+  }
+}
+
+@keyframes spin-color {
+  from, 20% {
+    transform: perspective($transform-perspective) rotateY(0deg);
+  }
+
+  30%, to {
+    transform: perspective($transform-perspective) rotateY(180deg);
+  }
+}
+
+@keyframes rotate {
+  from, 10% {
+    transform: rotateZ(0deg);
+  }
+
+  25%, to {
+    transform: rotateZ(90deg);
   }
 }

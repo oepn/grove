@@ -22,17 +22,21 @@
       color: $white;
     }
 
-    &__long {
+    &__text {
       display: none;
     }
 
-    @include breakpoint(28em) {
-      &__short {
-        display: none;
+    &::after {
+      content: 'N. Charles'
+    }
+
+    @include breakpoint(28rem) {
+      &__text {
+        display: inline;
       }
 
-      &__long {
-        display: inline;
+      &::after {
+        content: '';
       }
     }
   }

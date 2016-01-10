@@ -5,7 +5,12 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: $white;
+  background: rgba($white, 0.90);
+  -webkit-backdrop-filter: blur(10px);
+
+  .no-backdropfilter & {
+    background: rgba($white, 0.97);
+  }
 
   &__title-area {
     float: left;

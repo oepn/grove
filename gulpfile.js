@@ -91,6 +91,7 @@ function buildScripts() {
             'setClasses'
         ],
         'feature-detects': [
+            'test/css/backdropfilter',
             'test/css/flexbox',
             'touchevents'
         ]

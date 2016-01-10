@@ -45,7 +45,7 @@
     font-size: 0.9rem;
     line-height: $navbar-height;
     color: $dark-gray;
-    padding: 1em;
+    padding: 0.9rem;
 
     .no-touchevents &:hover, &.active {
       color: $black;
@@ -55,7 +55,6 @@
   &__list {
     float: right;
     position: relative;
-    right: -1em;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -70,7 +69,7 @@
     $padding: rem-calc($gutter) / 2;
 
     @include breakpoint($breakpoint) {
-      padding-right: rem-calc($gutter);
+      padding-right: $padding;
 
       &__logo {
         padding-right: $padding * 2;

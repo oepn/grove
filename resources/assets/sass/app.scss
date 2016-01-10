@@ -1,7 +1,7 @@
 @import "foundation/foundation";
 
-$navbar-height: 50px;
-$banner-height: 400px;
+$navbar-height: rem-calc(50px);
+$banner-height: rem-calc(400px);
 $footer-height: 2rem;
 
 $timing--fast: 150ms;

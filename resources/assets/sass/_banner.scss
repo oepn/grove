@@ -15,7 +15,7 @@ $transform-perspective: 300px;
     margin-bottom: $navbar-height;
 
     &__icon {
-      $icon-size: 50px;
+      $icon-size: rem-calc(40px);
       width: $icon-size;
       height: $icon-size;
       margin: 0 auto 1rem;

@@ -1,14 +1,15 @@
 .c-banner {
-  @include flex-grid-row($width: 100%);
-  @include flex-grid-row-align(center, middle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: calc(100vh - #{$navbar-height});
+  min-height: $banner-min-height + $navbar-height;
   max-height: $banner-height;
   background: $white;
   text-align: center;
 
   &__content {
-    @include flex-grid-column;
-    margin-top: -$navbar-height;
+    margin-bottom: $navbar-height;
   }
 
   &__title {

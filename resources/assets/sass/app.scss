@@ -2,6 +2,7 @@
 
 $navbar-height: rem-calc(50px);
 $banner-height: rem-calc(400px);
+$banner-min-height: $banner-height/2.5;
 $footer-height: 2rem;
 
 $z-index--navbar: 1000;

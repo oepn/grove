@@ -2,10 +2,15 @@
 
 $navbar-height: 50px;
 $banner-height: 400px;
+$footer-height: 2rem;
 
 $timing--fast: 150ms;
 $timing--medium: 250ms;
 $timing--slow: 350ms;
+
+body {
+  padding-bottom: $footer-height;
+}
 
 @import "typography";
 @import "navbar";

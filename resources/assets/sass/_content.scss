@@ -1,6 +1,6 @@
 .o-content {
   @include grid-row;
-  min-height: calc(100vh - #{$navbar-height});
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
 
   a {
     &:link, &:visited {

@@ -4,12 +4,19 @@ $navbar-height: rem-calc(50px);
 $banner-height: rem-calc(400px);
 $footer-height: 2rem;
 
+$z-index--navbar: 1000;
+
 $timing--fast: 150ms;
 $timing--medium: 250ms;
 $timing--slow: 350ms;
 
 body {
   padding-bottom: $footer-height;
+}
+
+.o-page-wrapper {
+  margin-top: $navbar-height;
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
 }
 
 @import "typography";

@@ -12,7 +12,9 @@
 <body>
 
 {% include('partials.navbar') %}
-{{ block('content') }}
+<div class="o-page-wrapper">
+    {{ block('content') }}
+</div>
 
 <script src="/assets/js/app.js"></script>
 </body>

@@ -1,7 +1,9 @@
 .c-navbar {
   $base: #{&};
   @include clearfix;
-  position: relative;
+  z-index: $z-index--navbar;
+  position: fixed;
+  top: 0;
   width: 100%;
   background: $white;
 

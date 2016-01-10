@@ -1,6 +1,5 @@
 .o-content {
   @include grid-row;
-  background: #fff;
   min-height: calc(100vh - #{$navbar-height});
 
   a {

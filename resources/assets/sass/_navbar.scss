@@ -1,16 +1,9 @@
 .c-navbar {
   $base: #{&};
+  @include clearfix;
   position: relative;
   width: 100%;
   background: $white;
-
-  &__wrapper {
-    @include grid-row;
-
-    &__content {
-      @include grid-column;
-    }
-  }
 
   &__title-area {
     float: left;
@@ -73,14 +66,7 @@
     $padding: rem-calc($gutter) / 2;
 
     @include breakpoint($breakpoint) {
-      &__wrapper {
-        padding-right: $padding;
-        padding-left: $padding;
-      }
-
-      &__title-area {
-        margin-left: -$padding * 2;
-      }
+      padding-right: rem-calc($gutter);
 
       &__logo {
         padding-right: $padding * 2;

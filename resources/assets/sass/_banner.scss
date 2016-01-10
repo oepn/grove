@@ -16,22 +16,18 @@ $transform-perspective: 300px;
 
     &__icon {
       $icon-size: 50px;
-      position: relative;
-      display: block;
       width: $icon-size;
       height: $icon-size;
       margin: 0 auto 1rem;
-      animation: $animation-duration/2 ease rotate infinite;
+      animation: $animation-duration/2 rotate infinite;
 
       &::before {
         content: '';
-        position: absolute;
         display: block;
-        top: 0;
-        width: $icon-size;
-        height: $icon-size;
+        width: inherit;
+        height: inherit;
         background-color: $primary-color;
-        animation: $animation-duration ease spin-color infinite;
+        animation: $animation-duration flip infinite;
       }
     }
 
@@ -48,22 +44,34 @@ $transform-perspective: 300px;
   }
 }
 
-@keyframes spin-color {
-  from, 20% {
-    transform: perspective($transform-perspective) rotateY(0deg);
+@keyframes flip {
+  from, 70% {
+    transform: perspective($transform-perspective) rotateX(0deg);
   }
 
-  30%, to {
-    transform: perspective($transform-perspective) rotateY(180deg);
+  78% {
+    transform: perspective($transform-perspective) rotateX(200deg);
+  }
+
+  82%, to {
+    transform: perspective($transform-perspective) rotateX(180deg);
   }
 }
 
 @keyframes rotate {
   from, 10% {
-    transform: rotateZ(0deg);
+    transform: rotateZ(-90deg);
+  }
+
+  15%, 17% {
+    transform: rotateZ(-105deg);
   }
 
   25%, to {
-    transform: rotateZ(90deg);
+    transform: rotateZ(10deg);
+  }
+
+  30%, to {
+    transform: rotateZ(0deg);
   }
 }

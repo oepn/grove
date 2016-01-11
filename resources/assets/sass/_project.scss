@@ -36,9 +36,14 @@
     }
 
     &__description {
-      @include grid-column-size(6);
-      padding-left: 0;
-      padding-right: rem-calc($gutter)/2;
+      max-width: map_get($breakpoints, medium);
+
+      &--with-image {
+        @include grid-column-size(6);
+        max-width: none;
+        padding-left: 0;
+        padding-right: rem-calc($gutter)/2;
+      }
 
       &__title {
         margin-top: -0.35rem; // Remove space above text to align top edges

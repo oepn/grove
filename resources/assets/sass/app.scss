@@ -20,6 +20,11 @@ body {
   min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
 }
 
+.o-list--unstyled {
+  padding: 0;
+  list-style: none;
+}
+
 @import "typography";
 @import "navbar";
 @import "banner";

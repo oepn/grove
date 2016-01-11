@@ -4,22 +4,46 @@
     <div class="o-content">
         <div class="o-content__wrapper">
             <div class="o-project">
-                <div class="o-project__image">
-                    <img src="/assets/images/project.jpg">
-                </div>
-                <div class="o-project__description">
-                    <h1 class="o-project__description__title o-project__description__title--with-link">Lorem Ipsum</h1>
-                    <a target="_blank" href="#" class="o-project__description__link">wwww.google.com</a>
+                {% if project.image %}
+                    <div class="o-project__image">
+                        <img src="/assets/images/{{ project.image }}">
+                    </div>
+                {% endif %}
+                <div class="o-project__description
+                    {{- project.image ? ' o-project__description--with-image' -}}
+                    ">
+                    <h1 class="o-project__description__title
+                        {{- project.link ? ' o-project__description__title--with-link' -}}
+                        ">
+                        {{- project.title -}}
+                    </h1>
+                    {% if project.link %}
+                        <a target="_blank" href="{{ url(project.link.url) }}"
+                           class="o-project__description__link">
+                            {{- project.link.title -}}
+                        </a>
+                    {% endif %}
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi autem error eveniet excepturi explicabo <a href="#">illo</a>, labore laborum nisi obcaecati possimus praesentium reiciendis rerum similique sit. Ex labore minima nisi.</p>
+                    {{ project.description|raw }}
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid distinctio doloribus, dolorum explicabo libero nesciunt nisi nobis nulla officia omnis quidem repellat saepe similique tempore voluptatum. Quae quasi tenetur voluptatum.</p>
+                    {% if project.role %}
+                        <h2>Role</h2>
+                        <p>{{ project.role }}</p>
+                    {% endif %}
 
-                    <h2>Sub Section</h2>
+                    {% if project.team %}
+                        <h2>Team</h2>
+                        <ul class="o-list--unstyled">
+                            {% for member in project.team %}
+                                <li>{{ member.name }} - <em>{{ member.role }}</em></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque culpa ex maxime mollitia natus, reiciendis? Ab molestias nobis rem. Aperiam consectetur ex, iure magnam non placeat vitae. Dolores, error?</p>
-
-                    <p>Animi atque beatae commodi consectetur consequatur consequuntur debitis delectus deserunt, doloribus eum, facere hic ipsam maiores modi officiis porro, praesentium quasi quia quidem quo reiciendis temporibus tenetur vero voluptates voluptatum.</p>
+                    {% if project.technical %}
+                        <h2>Technical</h2>
+                        <p>{{ project.technical }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

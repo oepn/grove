@@ -119,6 +119,7 @@ function startBrowserSync() {
     browserSync({
         files: [
             'app/**/*',
+            'resources/data/**/*',
             'resources/views/**/*',
             paths.public + '/**/*'
         ],

@@ -144,9 +144,21 @@
       "resolved": "https://registry.npmjs.org/async-foreach/-/async-foreach-0.1.3.tgz"
     },
     "autoprefixer": {
-      "version": "6.2.3",
-      "from": "autoprefixer@latest",
-      "resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-6.2.3.tgz"
+      "version": "6.3.0",
+      "from": "autoprefixer@6.3.0",
+      "resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-6.3.0.tgz",
+      "dependencies": {
+        "postcss": {
+          "version": "5.0.14",
+          "from": "postcss@>=5.0.14 <6.0.0",
+          "resolved": "https://registry.npmjs.org/postcss/-/postcss-5.0.14.tgz"
+        },
+        "supports-color": {
+          "version": "3.1.2",
+          "from": "supports-color@>=3.1.2 <4.0.0",
+          "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-3.1.2.tgz"
+        }
+      }
     },
     "aws-sign2": {
       "version": "0.6.0",
@@ -308,9 +320,9 @@
       }
     },
     "browserslist": {
-      "version": "1.0.1",
-      "from": "browserslist@>=1.0.1 <1.1.0",
-      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-1.0.1.tgz"
+      "version": "1.1.1",
+      "from": "browserslist@>=1.1.1 <1.2.0",
+      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-1.1.1.tgz"
     },
     "bs-recipes": {
       "version": "1.0.5",
@@ -338,9 +350,9 @@
       "resolved": "https://registry.npmjs.org/camelcase-keys/-/camelcase-keys-2.0.0.tgz"
     },
     "caniuse-db": {
-      "version": "1.0.30000384",
-      "from": "caniuse-db@>=1.0.30000382 <2.0.0",
-      "resolved": "https://registry.npmjs.org/caniuse-db/-/caniuse-db-1.0.30000384.tgz"
+      "version": "1.0.30000387",
+      "from": "caniuse-db@>=1.0.30000387 <2.0.0",
+      "resolved": "https://registry.npmjs.org/caniuse-db/-/caniuse-db-1.0.30000387.tgz"
     },
     "caseless": {
       "version": "0.11.0",
@@ -559,9 +571,9 @@
       "resolved": "https://registry.npmjs.org/dev-ip/-/dev-ip-1.0.1.tgz"
     },
     "doctrine": {
-      "version": "0.6.4",
-      "from": "doctrine@0.6.4",
-      "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-0.6.4.tgz"
+      "version": "1.1.0",
+      "from": "doctrine@1.1.0",
+      "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-1.1.0.tgz"
     },
     "duplexer2": {
       "version": "0.0.2",
@@ -2377,24 +2389,14 @@
       }
     },
     "modernizr": {
-      "version": "3.2.0",
-      "from": "modernizr@latest",
-      "resolved": "https://registry.npmjs.org/modernizr/-/modernizr-3.2.0.tgz",
+      "version": "3.3.0",
+      "from": "modernizr@3.3.0",
+      "resolved": "https://registry.npmjs.org/modernizr/-/modernizr-3.3.0.tgz",
       "dependencies": {
-        "camelcase": {
-          "version": "1.2.1",
-          "from": "camelcase@>=1.2.1 <2.0.0",
-          "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
-        },
         "lodash": {
           "version": "3.10.1",
           "from": "lodash@3.10.1",
           "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
-        },
-        "yargs": {
-          "version": "3.29.0",
-          "from": "yargs@3.29.0",
-          "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.29.0.tgz"
         }
       }
     },
@@ -2828,9 +2830,9 @@
       }
     },
     "requirejs": {
-      "version": "2.1.20",
-      "from": "requirejs@2.1.20",
-      "resolved": "https://registry.npmjs.org/requirejs/-/requirejs-2.1.20.tgz"
+      "version": "2.1.22",
+      "from": "requirejs@2.1.22",
+      "resolved": "https://registry.npmjs.org/requirejs/-/requirejs-2.1.22.tgz"
     },
     "requires-port": {
       "version": "0.0.1",

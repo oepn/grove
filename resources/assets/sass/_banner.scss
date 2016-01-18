@@ -28,6 +28,7 @@ $transform-perspective: 300px;
         height: inherit;
         background-color: $primary-color;
         animation: $animation-duration flip infinite;
+        animation-delay: $animation-duration * 0.58;
       }
     }
 
@@ -45,15 +46,15 @@ $transform-perspective: 300px;
 }
 
 @keyframes flip {
-  from, 70% {
+  from {
     transform: perspective($transform-perspective) rotateX(0deg);
   }
 
-  78% {
+  8% {
     transform: perspective($transform-perspective) rotateX(200deg);
   }
 
-  82%, to {
+  12%, to {
     transform: perspective($transform-perspective) rotateX(180deg);
   }
 }
@@ -67,7 +68,7 @@ $transform-perspective: 300px;
     transform: rotateZ(-105deg);
   }
 
-  25%, to {
+  25% {
     transform: rotateZ(10deg);
   }
 

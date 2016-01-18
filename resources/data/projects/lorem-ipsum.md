@@ -1,6 +1,7 @@
 ---
 title: Lorem Ipsum
 type: Website Development
+date: January 5, 2013
 image: project.jpg
 link:
     title: www.google.com

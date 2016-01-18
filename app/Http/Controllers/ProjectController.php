@@ -4,6 +4,7 @@ namespace Grove\Http\Controllers;
 
 use App;
 use Cache;
+use DateTime;
 use Illuminate\Support\Collection;
 use ParsedownExtra;
 use Spatie\YamlFrontMatter\Parser;
@@ -43,7 +44,9 @@ class ProjectController extends Controller
 
     public function home()
     {
-        $projects = $this->projects->pluck('meta');
+        $projects = $this->projects->sortByDesc(function($project) {
+            return (new DateTime($project['meta']['date']))->format('U');
+        })->pluck('meta');
 
         return View::make('home', [
             'projects' => $projects

@@ -1,6 +1,7 @@
 ---
 title: Foobar
 type: Website Development
+date: January 15, 2013
 image: project.jpg
 link:
     title: www.google.com

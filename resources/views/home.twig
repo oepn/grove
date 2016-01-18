@@ -11,15 +11,15 @@
     </div>
 
     <ul class="o-grid">
-        {% for i in 1..6 %}
+        {% for project in projects %}
             <li class="o-grid__item">
                 <a href="{{ route('portfolio.show', 'foobar') }}">
                     <div class="o-project-block">
                         <div class="o-project-block__image"
-                             style="background-image: url(/assets/images/project.jpg)">
+                             style="background-image: url(/assets/images/{{ project.image }})">
                         </div>
-                        <h3 class="o-project-block__title">Lorem Ipsum</h3>
-                        <p class="o-project-block__subtitle">Website Development</p>
+                        <h3 class="o-project-block__title">{{ project.title }}</h3>
+                        <p class="o-project-block__subtitle">{{ project.type }}</p>
                     </div>
                 </a>
             </li>

@@ -9,7 +9,7 @@
     "laravel/framework": "5.2.*",
     "erusev/parsedown-extra": "^0.7.1",
     "rcrowe/twigbridge": "~0.9.1",
-    "symfony/yaml": "2.8.*|3.0.*"
+    "spatie/yaml-front-matter": "~1.0.0"
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "^2.1.2",

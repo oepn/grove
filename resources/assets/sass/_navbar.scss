@@ -94,7 +94,7 @@
       color: $black;
 
       .no-touchevents &:hover, &.active {
-        color: $dark-gray;
+        text-decoration: underline;
       }
     }
   }

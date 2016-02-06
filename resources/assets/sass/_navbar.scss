@@ -6,7 +6,7 @@
   top: 0;
   width: 100%;
   background: #fff;
-  border-bottom: 1px solid $light-gray;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
 
   &__title-area {
     float: left;
@@ -84,7 +84,7 @@
 
   &.t-minimal-navbar {
     background-color: $primary-color;
-    border: none;
+    box-shadow: none;
 
     #{$base}__title-area {
       display: none;

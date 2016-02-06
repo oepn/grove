@@ -8,7 +8,7 @@ $transform-perspective: 300px;
   height: calc(100vh - #{$navbar-height});
   min-height: $banner-min-height + $navbar-height;
   max-height: $banner-height;
-  background: $white;
+  background: $primary-color;
   text-align: center;
 
   &__content {
@@ -26,7 +26,7 @@ $transform-perspective: 300px;
         display: block;
         width: inherit;
         height: inherit;
-        background-color: $primary-color;
+        background-color: $black;
         animation: $animation-duration flip infinite;
         animation-delay: $animation-duration * 0.58;
       }

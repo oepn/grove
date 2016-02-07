@@ -42,6 +42,26 @@
         content: none;
       }
     }
+
+    @include breakpoint(medium) {
+      &::before {
+        $size: 1rem;
+        content: '';
+        position: relative;
+        display: inline-block;
+        top: 0.1rem;
+        width: $size;
+        height: $size;
+        margin-right: 0.3rem;
+        background: $body-font-color;
+      }
+
+      .no-touchevents &:hover, &:active {
+        &::before {
+          background: $white;
+        }
+      }
+    }
   }
 
   &__link {

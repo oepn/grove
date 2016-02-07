@@ -1,5 +1,6 @@
 $animation-duration: 7s;
 $transform-perspective: 300px;
+$icon-size: rem-calc(42px);
 
 .c-banner {
   display: flex;
@@ -15,10 +16,9 @@ $transform-perspective: 300px;
     margin-bottom: $navbar-height;
 
     &__icon {
-      $icon-size: rem-calc(40px);
       width: $icon-size;
       height: $icon-size;
-      margin: 0 auto 1rem;
+      margin: 0 auto 0.75rem;
       animation: $animation-duration/2 rotate infinite;
 
       &::before {
@@ -32,15 +32,35 @@ $transform-perspective: 300px;
       }
     }
 
-    &__title {
-      font-size: 1.5rem;
-      line-height: 1.3;
-      margin: 0;
-    }
+    &__text {
+      &__title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin: 0;
+      }
 
-    &__subtitle {
-      font-size: 1rem;
-      margin: 0;
+      &__subtitle {
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    text-align: left;
+
+    &__content {
+      &__icon {
+        float: left;
+        position: relative;
+        top: 0.45rem;
+      }
+
+      &__text {
+        float: left;
+        position: relative;
+        margin-left: $icon-size/3;
+      }
     }
   }
 }

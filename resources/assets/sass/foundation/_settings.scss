@@ -5,10 +5,13 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 
 $primary-color: #f7de1e;
-$secondary-color: #777;
-$success-color: #3adb76;
-$warning-color: #ffae00;
-$alert-color: #ec5840;
+$foundation-palette: (
+  primary: $primary-color,
+  secondary: #777,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #ec5840,
+);
 
 $white: #f3f3f3;
 $light-gray: #e6e6e6;

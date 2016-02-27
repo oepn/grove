@@ -7,7 +7,7 @@
   }
 
   &__description {
-    $gutter: map-get($grid-column-responsive-gutter, small);
+    $gutter: map-get($grid-column-gutter, small);
     @include grid-column($gutter: $gutter * 2);
 
     &__title {
@@ -27,7 +27,7 @@
   }
 
   @include breakpoint(medium) {
-    $gutter: map-get($grid-column-responsive-gutter, medium);
+    $gutter: map-get($grid-column-gutter, medium);
     margin-top: 3rem;
 
     &__image {

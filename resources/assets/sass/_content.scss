@@ -17,7 +17,7 @@
   // Add extra padding on larger screens
   @include breakpoint(medium) {
     &__wrapper {
-      $padding: rem-calc(map_get($grid-column-responsive-gutter, medium))/2;
+      $padding: rem-calc(map_get($grid-column-gutter, medium))/2;
       padding-right: $padding;
       padding-left: $padding;
     }
